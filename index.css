@@ -1,0 +1,28 @@
+#websocket-url {
+    width:225px;
+}
+
+#subscription-url {
+    width:225px;
+}
+
+#log {
+    border:1px solid black;
+    border-radius:3px;
+    width:98%;
+    padding:5px 5px;
+}
+
+#scopes {
+    height:75px;
+    width:300px;
+}
+
+#subscriptions {
+    height:75px;
+    width:300px;
+}
+
+#connect {
+    visibility:hidden;
+}

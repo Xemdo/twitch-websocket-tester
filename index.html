@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/index.css">
+    </head>
+    <body>
+        <p>This is an example used to connect into EventSub WebSockets</p>
+
+        <p><a href="" id="authorize">Authorize with Twitch</a></p>
+        <p><b>Scopes:</b></p>
+        <textarea id="scopes"></textarea>
+        <p><button onclick="updateAuthUrl()">Update Authorization URL with new scopes</button></p>
+
+        <hr>
+
+        <div id="connect">
+            <button onclick="autofillCLI()">Auto-fill URLs for Twitch CLI</button>&nbsp;&nbsp;
+            <button onclick="autofillProduction()">Auto-fill URLs for production</button><br><br>
+
+            <span><b>Websocket URL:</b>&nbsp;</span>
+            <input id="websocket-url" type="textbox" /><br>
+            <button onclick="connectWebsocket()" id="btnConnect">Connect</button>&nbsp;<button onclick="disconnectWebsocket()" id="btnClose" disabled="true">Close</button>
+
+            <p><b>Subscriptions</b></p>
+            <span><b>Subscription URL:</b>&nbsp;</span>
+            <input id="subscription-url" type="textbox" /><br>
+
+            <button onclick="premadeSub('channel.update')">channel.update</button>&nbsp;
+            <button onclick="premadeSub('channel.ban')">channel.ban</button>&nbsp;
+            <button onclick="premadeSub('channel.unban')">channel.unban</button>&nbsp;
+            <button onclick="premadeSub('channel.moderator.add')">channel.moderator.add</button><br>
+            <button onclick="premadeSub('channel.moderator.remove')">channel.moderator.remove</button>&nbsp;
+            <button onclick="premadeSub('channel.shield_mode.begin')">channel.shield_mode.begin</button>&nbsp;
+            <button onclick="premadeSub('channel.shield_mode.end')">channel.shield_mode.end</button><br>
+            <button onclick="premadeSub('stream.online')">stream.online</button>&nbsp;
+            <button onclick="premadeSub('stream.offline')">stream.offline</button>&nbsp;
+            <button onclick="premadeSub('user.update')">user.update</button>&nbsp;
+            
+            <br>
+            
+            <span>Payload</span><br>
+            <textarea id="subscriptions"></textarea><br>
+            <button onclick="subscribe()">Subscribe</button>
+
+            <br><br>
+            <button onclick="sendSpamText()">Send spam text message to server</button>
+        </div>
+
+        <hr>
+
+        <span><b>Log:</b></span>&nbsp;<button onclick="clearLog()">Clear</button>
+        &nbsp;&nbsp;&nbsp;<input type="checkbox" onclick="toggleHideKeepalive()" id="chkHideKeepalive" />&nbsp;<span>Hide Keepalive messages</span>
+        <div id="log">
+            <span>Welcome</span><br>
+        </div>
+
+        <script type="text/javascript" src="./index.js"></script>
+    </body>
+</html>
