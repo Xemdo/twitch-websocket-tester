@@ -44,12 +44,12 @@ function updateAuthUrl(customScopes) {
 }
 
 function getAuthUrl(scopes) {
-    // https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=4ofh8m0706jqpholgk00u3xvb4spct&redirect_uri=http%3A%2F%2Flocalhost%3A8080&scope=channel%3Amanage%3Apolls
+    // https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=4ofh8m0706jqpholgk00u3xvb4spct&redirect_uri=https%3A%2F%2Fxemdo.github.io%2Ftwitch-websocket-tester%2F&scope=channel%3Amanage%3Apolls
     let url =
         'https://id.twitch.tv/oauth2/authorize' +
         '?response_type=token' +
         '&client_id=' + client_id +
-        '&redirect_uri=http%3A%2F%2Flocalhost%3A9090' +
+        '&redirect_uri=https%3A%2F%2Fxemdo.github.io%2Ftwitch-websocket-tester%2F' +
         '&scope=';
     
     scopes.forEach((scope) => {
