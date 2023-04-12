@@ -215,7 +215,7 @@ function autofillCLI() {
 }
 
 function autofillProduction() {
-    document.getElementById('websocket-url').value = 'wss://eventsub-beta.wss.twitch.tv/ws';
+    document.getElementById('websocket-url').value = 'wss://eventsub.wss.twitch.tv/ws';
     document.getElementById('subscription-url').value = 'https://api.twitch.tv/helix/eventsub/subscriptions';
 }
 
