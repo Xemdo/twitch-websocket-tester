@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Manual Twitch IRC Testing Tool</title>
+        <link rel="stylesheet" href="./irc.css">
+    </head>
+    <body>
+        <p>This is used for testing different things in IRC easier.</p>
+        <p><a href="" id="authorize">Authorize with Twitch</a></p>
+
+        <hr>
+
+        <div id="connect">
+            <button onclick="connectWebsocket()" id="btnConnect">Connect</button>&nbsp;<button onclick="disconnectWebsocket()" id="btnClose">Close</button><br>
+            <input type="checkbox" id="chkSendReq" checked />&nbsp;<span>Send CAP REQ automatically</span><br>
+            <input type="checkbox" id="chkSendPassNick" checked />&nbsp;<span>Send PASS and NICK automatically</span><br><br>
+
+            <span>Payload (all lines are sent individually)</span><br>
+            <textarea id="payload"></textarea><br>
+            <button onclick="sendPayload()" id="btnSendPayload">Send</button>
+
+            <hr>
+
+            <span>Messages</span>&nbsp;<button onclick="clearLog()">Clear Log</button><br>
+            <input type="checkbox" id="chkNewlinePlaintext"/>&nbsp;<span>Don't parse \r\n</span><br>
+            <div id="log">
+                
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./irc.js"></script>
+    </body>
+</html>

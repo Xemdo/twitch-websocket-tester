@@ -1,0 +1,17 @@
+#connect {
+    visibility: hidden;
+}
+
+#payload {
+    width:95%;
+    height:100px;
+}
+
+#log {
+    width:100%;
+    border:1px solid black;
+}
+
+#log span {
+    overflow-wrap: break-word;
+}
