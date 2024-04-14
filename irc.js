@@ -72,7 +72,7 @@ function connectWebsocket() {
         writeLog(data, "RECEIVE")
 
         // Handle ping/pong
-        if (message.startsWith("PING :tmi.twitch.tv")) {
+        if (data.startsWith("PING :tmi.twitch.tv")) {
             sendMessage("PONG :tmi.twitch.tv");
         }
 
