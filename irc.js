@@ -37,13 +37,13 @@ function linkAuthUrl() {
 function connectWebsocket() {
     socket = new WebSocket(websocketUrl);
 
-    socket.addEventListener('open', (event) => {
+    socket.addEventListener('open', async (event) => {
         writeLog('Connected to ' + websocketUrl);
 
         document.getElementById("btnConnect").disabled = true;
         document.getElementById("btnClose").disabled = false;
 
-        getUserID();
+        await getUserID();
 
         if (document.getElementById('chkSendReq').checked) {
             sendMessage('CAP REQ :twitch.tv/membership twitch.tv/tags twitch.tv/commands');
@@ -71,6 +71,11 @@ function connectWebsocket() {
 
         writeLog(data, "RECEIVE")
 
+        // Handle ping/pong
+        if (message.startsWith("PING :tmi.twitch.tv")) {
+            sendMessage("PONG :tmi.twitch.tv");
+        }
+
         //data = JSON.parse(event.data);
     });
 }
@@ -91,7 +96,6 @@ function sendPayload() {
     var lines = document.getElementById("payload").value.split('\n');
     for (var i = 0; i < lines.length; i++) {
         sendMessage(lines[i]);
-        writeLog(lines[i], "SEND");
     }
 
     document.getElementById("payload") = '';
@@ -99,6 +103,7 @@ function sendPayload() {
 
 function sendMessage(message) {
     socket.send(message);
+    writeLog(message, "SEND");
 }
 
 function timestamp() {
@@ -127,8 +132,8 @@ function clearLog() {
     log.innerHTML = '';
 }
 
-function getUserID() {
-    fetch('https://id.twitch.tv/oauth2/validate', {
+async function getUserID() {
+    await fetch('https://id.twitch.tv/oauth2/validate', {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
